@@ -1,0 +1,12 @@
+
+Vendor=WCH
+MCU=CH592X
+Mcu Type=CH59x
+Link=WCH-Link
+Address=0x00000000
+Target Path=obj\provisioner_vendor.hex
+Erase All=true
+Program=true
+Verify=true
+Reset=true
+CLKSpeed=2
