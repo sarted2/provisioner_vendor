@@ -10163,9 +10163,9 @@ D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1297
     3e6e:	0a49                	addi	s4,s4,18
     3e70:	ff6915e3          	bne	s2,s6,3e5a <App_ProcessEvent+0x3e4>
 D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1305
-                if(data2[2]=='0')
+                if(data2[1]=='0')
     3e74:	1ffff717          	auipc	a4,0x1ffff
-    3e78:	05a74703          	lbu	a4,90(a4) # 20002ece <data2+0x2>
+    3e78:	05974703          	lbu	a4,89(a4) # 20002ecd <data2+0x1>
     3e7c:	03000793          	li	a5,48
     3e80:	04f71763          	bne	a4,a5,3ece <App_ProcessEvent+0x458>
 D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1307

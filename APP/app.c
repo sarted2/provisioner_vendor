@@ -1302,7 +1302,7 @@ static uint16_t App_ProcessEvent(uint8_t task_id, uint16_t events)
                             flag3=1;
                       }
                  }
-                if(data2[2]=='0')
+                if(data2[1]=='0')
                 {
                     for (int f = 0; f <= num; ++f) {
                         vendor_model_cli_send(stu[f].Addr, data2, 13);
