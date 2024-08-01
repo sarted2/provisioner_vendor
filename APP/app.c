@@ -1269,9 +1269,9 @@ static uint16_t App_ProcessEvent(uint8_t task_id, uint16_t events)
                 APP_DBG("");
                 uint8_t temp0 = (data1[0]-48)*10+(data1[1]-48);
                 temp_uuid[0]=temp0;
-                uint8_t temp1 = (data1[2]-48)*10+(data1[3]-48);
+                uint8_t temp1 = (data1[2]-48)*100+(data1[3]-48)*10+(data1[4]-48);
                 temp_uuid[1]=temp1;
-                uint8_t temp2 = (data1[4]-48)*100+(data1[5]-48)*10+(data1[6]-48);
+                uint8_t temp2 = (data1[5]-48)*10+(data1[6]-48);
                 temp_uuid[2]=temp2;
                 uint8_t temp3 = (data1[7]-48)*10+(data1[8]-48);
                 temp_uuid[3]=temp3;

@@ -9964,26 +9964,26 @@ D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1271
     3cde:	1ffff697          	auipc	a3,0x1ffff
     3ce2:	60f68b23          	sb	a5,1558(a3) # 200032f4 <temp_uuid>
 D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1272
-                uint8_t temp1 = (data1[2]-48)*10+(data1[3]-48);
+                uint8_t temp1 = (data1[2]-48)*100+(data1[3]-48)*10+(data1[4]-48);
     3ce6:	0024c783          	lbu	a5,2(s1)
-    3cea:	0034c683          	lbu	a3,3(s1)
-    3cee:	02e787b3          	mul	a5,a5,a4
-    3cf2:	16c1                	addi	a3,a3,-16
-    3cf4:	97b6                	add	a5,a5,a3
+    3cea:	06400693          	li	a3,100
+    3cee:	02d787b3          	mul	a5,a5,a3
+    3cf2:	0044c683          	lbu	a3,4(s1)
+    3cf6:	03068693          	addi	a3,a3,48
+    3cfa:	97b6                	add	a5,a5,a3
+    3cfc:	0034c683          	lbu	a3,3(s1)
+    3d00:	02e686b3          	mul	a3,a3,a4
+    3d04:	97b6                	add	a5,a5,a3
 D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1273
                 temp_uuid[1]=temp1;
-    3cf6:	1ffff697          	auipc	a3,0x1ffff
-    3cfa:	5ef68fa3          	sb	a5,1535(a3) # 200032f5 <temp_uuid+0x1>
+    3d06:	1ffff697          	auipc	a3,0x1ffff
+    3d0a:	5ef687a3          	sb	a5,1519(a3) # 200032f5 <temp_uuid+0x1>
 D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1274
-                uint8_t temp2 = (data1[4]-48)*100+(data1[5]-48)*10+(data1[6]-48);
-    3cfe:	0044c783          	lbu	a5,4(s1)
-    3d02:	06400693          	li	a3,100
-    3d06:	02d787b3          	mul	a5,a5,a3
-    3d0a:	0064c683          	lbu	a3,6(s1)
-    3d0e:	03068693          	addi	a3,a3,48
-    3d12:	97b6                	add	a5,a5,a3
-    3d14:	0054c683          	lbu	a3,5(s1)
-    3d18:	02e686b3          	mul	a3,a3,a4
+                uint8_t temp2 = (data1[5]-48)*10+(data1[6]-48);
+    3d0e:	0054c783          	lbu	a5,5(s1)
+    3d12:	0064c683          	lbu	a3,6(s1)
+    3d16:	02e787b3          	mul	a5,a5,a4
+    3d1a:	16c1                	addi	a3,a3,-16
     3d1c:	97b6                	add	a5,a5,a3
 D:\MESH\CH592EVT\EVT\EXAM\BLE\MESH\provisioner_vendor\obj/../APP/app.c:1275
                 temp_uuid[2]=temp2;
