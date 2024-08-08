@@ -867,6 +867,9 @@ static void vendor_model_cli_rsp_handler(const vendor_model_cli_status_t *val)
 //                val->vendor_model_cli_Event.trans.addr);
         tmos_memcpy(&app_mesh_manage, val->vendor_model_cli_Event.trans.pdata, val->vendor_model_cli_Event.trans.len);
         UART1_SendString(app_mesh_manage.data.buf, 6);
+        APP_DBG("");
+        APP_DBG("0x%04x",val->vendor_model_cli_Event.trans.addr);
+        vendor_model_cli_send(val->vendor_model_cli_Event.trans.addr,"123456", 6);
         for (int i = 0; i <= num; ++i) {
             if(val->vendor_model_cli_Event.trans.addr==stu[i].Addr)
             {
@@ -1267,24 +1270,24 @@ static uint16_t App_ProcessEvent(uint8_t task_id, uint16_t events)
                 APP_DBG("");
                 UART1_SendString(data1, 28);
                 APP_DBG("");
-                uint8_t temp0 = (data1[0]-48)*10+(data1[1]-48);
+                uint8_t temp0 = (data1[0]-48)*100+(data1[1]-48)*10+(data1[2]-48);
                 temp_uuid[0]=temp0;
-                uint8_t temp1 = (data1[2]-48)*100+(data1[3]-48)*10+(data1[4]-48);
+                uint8_t temp1 = (data1[3]-48)*10+(data1[4]-48);
                 temp_uuid[1]=temp1;
-                uint8_t temp2 = (data1[5]-48)*10+(data1[6]-48);
+                uint8_t temp2 = (data1[5]-48)*100+(data1[6]-48)*10+(data1[7]-48);
                 temp_uuid[2]=temp2;
-                uint8_t temp3 = (data1[7]-48)*10+(data1[8]-48);
+                uint8_t temp3 = (data1[8]-48)*10+(data1[9]-48);
                 temp_uuid[3]=temp3;
-                uint8_t temp4 = (data1[9]-48)*10+(data1[10]-48);
+                uint8_t temp4 = (data1[10]-48)*10+(data1[11]-48);
                 temp_uuid[4]=temp4;
-                uint8_t temp5 = (data1[11]-48)*10+(data1[12]-48);
+                uint8_t temp5 = (data1[12]-48)*10+(data1[13]-48);
                 temp_uuid[5]=temp5;
                 for (int i = 0; i < 6; ++i) {
                     APP_DBG("%d",temp_uuid[i]);
                 }
                 for (int i = 0; i < 13; ++i)
                 {
-                     data2[i]=data1[i+13];
+                     data2[i]=data1[i+14];
                 }
                 memset(data1, 0, sizeof(data1));
                 APP_DBG("");
@@ -1294,7 +1297,7 @@ static uint16_t App_ProcessEvent(uint8_t task_id, uint16_t events)
                 for (int a = 0; a <num ; ++a) {
                     APP_DBG("0x%04x",stu[a].Addr);
                 }
-                for (int j = 0; j < 5; ++j)
+                for (int j = 0; j < 10; ++j)
                 {
                      if(compare_uint8_arrays(temp_uuid,stu[j].Arry_uuid,16))
                       {
